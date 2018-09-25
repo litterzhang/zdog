@@ -1,0 +1,26 @@
+{{ define "redirect" }}
+
+<!DOCTYPE html>
+<html>
+    <meta http-equiv="refresh" content="{{ .Time }};url='{{ .To }}'" >
+    {{ template "head" . }}
+    <body class="hack">
+        <div class="main container">
+            {{ template "message" . }}
+            <div class="grid">
+                <h1 class="cell -10of12">huge man - from {{ .From }} to {{ .To }}</h1>
+            </div>
+            <div class="grid">
+                {{ template "slide" . }}
+                <div class="cell -6of12">
+                    <div class="alert alert-info">
+                        <span class="loading"></span>redirect in {{ .Time }} seconds !
+                    </div>
+                </div>
+            </div>
+
+            {{ template "foot" . }}
+        </div>
+    </body>
+</html>
+{{ end }}

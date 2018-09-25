@@ -1,0 +1,23 @@
+{{ define "error" }}
+<!DOCTYPE html>
+<html>
+    {{ template "head" . }}
+
+    <body class="hack">
+        <div class="main container">
+            {{ template "message" .}}
+            <div class="grid">
+                <h1 class="cell -10of12">huge man - welcome to litter zhang's little home</h1>
+            </div>
+            <div class="grid">
+                {{ template "slide" . }}
+                <div class="cell -6of12">
+                    <div class="alert alert-error">{{ .Type }} Error Oops !</div>
+                </div>
+            </div>
+            {{ template "foot" . }}
+        </div>
+    </body>
+    
+</html>
+{{ end }}

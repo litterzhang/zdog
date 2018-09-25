@@ -1,0 +1,20 @@
+{{ define "slide" }}
+<div class="cell -2of12">
+    <ul>
+        <li>
+        {{ if .User }} 
+        <span> {{ index .User "name" }}</span>
+        {{ end }}
+        </li>
+        <li><a href="/index"> Index </a></li>
+        <li>
+            {{ if .User }} 
+            <a href="/logout"> Logout </a>
+            {{ else }}
+            <a href="/login"> Login </a>
+            {{ end }}
+        </li>
+    </ul>
+</div>
+<div class="cell -1of12 slide"></div>
+{{ end }}

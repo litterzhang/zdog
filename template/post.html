@@ -1,0 +1,35 @@
+{{ define "post" }}
+<!DOCTYPE html>
+<html>
+    {{ template "head" . }}
+    <link rel="stylesheet" href="/static/css/editormd.min.css" />
+    <body class="hack">
+        <div class="main container">
+            {{ template "message" . }}
+            <div class="grid">
+                <h1 class="cell -10of12">huge man - welcome to litter zhang's little home</h1>
+            </div>
+            <div class="grid">
+                {{ template "slide" . }}
+                <div class="cell -6of12">
+                    <div id="editormd">
+                        <textarea style="display:none;">### Hello Editor.md !</textarea>
+                    </div>
+                </div>
+            </div>
+            {{ template "foot" . }}
+        </div>
+    </body>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/editormd.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            // or
+            var editor = editormd({
+                id   : "editormd",
+                path : "/static/lib/"
+            });
+        });
+    </script> 
+</html>
+{{ end }}

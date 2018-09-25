@@ -1,0 +1,39 @@
+{{ define "message" }}
+<div class="tips">
+    {{ range .Messages }}
+    {{ $t := index . 0 }}
+    {{ if eq $t "error" }}
+    <div class="alert alert-error">{{ index . 1 }}</div>
+    {{ else if eq $t "info" }}
+    <div class="alert alert-info">{{ index . 1 }}</div>
+    {{ else if eq $t "success" }}
+    <div class="alert alert-success">{{ index . 1 }}</div>
+    {{ else if eq $t "warning" }}
+    <div class="alert alert-warning">{{ index . 1 }}</div>
+    {{ end }}
+    {{ end }}
+    <div class="card" id="hitokoto">
+        <header class="card-header" id="hitokoto-title"></header>
+        <div class="card-content">
+            <div class="inner" id="hitokoto-content"></div>
+        </div>
+    </div>
+</div>
+<script>
+    var hitokoto = document.getElementById('hitokoto') 
+    hitokoto.style.display = 'none';
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', 'https://v1.hitokoto.cn?c=d');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            var data = JSON.parse(xhr.responseText);
+            var title = document.getElementById('hitokoto-title')
+            title.innerText = data.from;
+            var content = document.getElementById('hitokoto-content')
+            content.innerText = data.hitokoto;
+            hitokoto.style.display = 'block';
+        }
+    }
+    xhr.send();
+</script>
+{{ end }}

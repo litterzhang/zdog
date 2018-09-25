@@ -1,0 +1,36 @@
+{{ define "login" }}
+
+<!DOCTYPE html>
+<html>
+    {{ template "head" . }}
+
+    <body class="hack">
+        <div class="main container">
+            {{ template "message" . }}
+            <div class="grid">
+                <h1 class="cell -10of12">huge man - login or sign up with your name</h1>
+            </div>
+            <div class="grid">
+                {{ template "slide" . }}
+                <div class="cell -6of12">
+                    <form class="form" action="/login" method="POST">
+                        <fieldset class="form-group">
+                            <label for="name">Name</label>
+                            <input name="name" id="name" type="text" placeholder="type your name..." class="form-control">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="password">Password</label>
+                            <input name="password" id="password" type="text" placeholder="type your password" class="form-control">
+                        </fieldset>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">sign in or sign up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            {{ template "foot" . }}
+        </div>
+    </body>
+</html>
+{{ end }}

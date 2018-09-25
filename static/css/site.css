@@ -1,0 +1,30 @@
+.main {
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .tips {
+        display: none;
+    }
+
+    .slide {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .tips {
+      position: absolute;
+      width: 250px;
+      padding: 0px;
+      text-align: center;
+      margin: 0px;
+      top: 50px;
+      right: -110px;
+    }
+
+    .slide {
+        border-left: 1px solid #ccc;
+        min-height: 180px
+    }
+}
